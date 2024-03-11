@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8"/>
+        <title>SciVi-FSGraph Examples</title>
+        <link rel="stylesheet" href="../cgraph/css/jquery-ui.css"/>
+        <script src="./lib/SciViFSGraph.vendor.js"></script>
+        <script src="./lib/SciViFSGraph.main.js"></script>
+        <style>
+            body
+            {
+                padding: 20px;
+            }
+        </style>
+        <script>
+            var tr_list = {
+                "ru": {
+                    "#title": "Примеры использования графа свободной структуры",
+                    "#events": "Медиасобытия 2017 года",
+                    "#grants": "Гранты РГНФ",
+                    "#psycho": "Психологические параметры"
+                },
+                "en": {
+                    "#title": "Examples of free structured graph usage",
+                    "#events": "Mediaevents 2017",
+                    "#grants": "RGSF Grants",
+                    "#psycho": "Psychological Parameters"
+                }
+            };
+
+            function main() {
+                var lang = SciViFSGraph.main.getParameterByName("lang") || "ru";
+                document.documentElement.lang = lang;
+
+                SciViFSGraph.main.getOrCreateTranslatorInstance(lang)
+                    .extend(tr_list)
+                    .applyRecursively(document.getElementById("examples-list-contaner"));
+
+                hookLinksWithLang(lang);
+
+                function hookLinksWithLang(lang) {
+                    var list = document.getElementById("examples-list");
+                    var extparam = "?lang=" + lang;
+                    for (var i = 0; i < list.childElementCount; i++) {
+                        var lnk = /** @type {HTMLLinkElement} */(list.children.item(i).getElementsByTagName("a")[0]);
+                        lnk.href += extparam;
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body onload="main()">
+        <ul id="lang-selsector">
+            <li><a href="?lang=ru">Русский</a></li>
+            <li><a href="?lang=en">English</a></li>
+        </ul>
+        <div id="examples-list-contaner">
+            <h2>#title</h2>
+            <hr>
+            <ul id="examples-list">
+                <li><a href="./events/index.html">#events</a></li>
+                <li><a href="./grants/index.html">#grants</a></li>
+                <li><a href="./psycho/index.html">#psycho</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "rootDir": ".",
+        "outDir": "dist",
+        "module": "es6",
+        "target": "es2018",
+        "checkJs": true,
+        "allowJs": true,
+        "moduleResolution": "node"
+        ,"typeRoots": ["node_modules/@types", "./src/@types"]
+        // ,"strict": true
+        // ,"alwaysStrict": true
+        // ,"noImplicitAny": false
+        ,"lib": [
+        "es2018",
+        "dom"
+      ]
+    },
+    "include": [
+        "./src/*",
+        "./node_modules/@scivi/**/*"
+    ]
+}
