@@ -1,21 +1,15 @@
 # SciVi Graph
 
-Graph drawing modules for SciVi scientific visualization system.
-
-## Contents
-
-1. SciVi::CGraph - circular graph.
-2. SciVi::FSGraph - free structure graph.
-3. SciVi::GISGraph - graph on the geographic map.
+It's a part of scivi's graph drawing modules. There is only module for free structured 2D graph.
 
 ## Building instructions
 
-### SciVi::CGraph
+### SciVi::FsGraph
 
 ```
-cd cgraph
+cd fsgraph
 npm install
-make
+npm run debug/release
 ```
 
-After that the runnable demos can be found in `demo/cgraph/index.html`.
+After that the runnable demos can be found in `demo/fsgraph/index.html`.
